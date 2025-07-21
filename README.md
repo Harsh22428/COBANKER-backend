@@ -1,50 +1,75 @@
-# Welcome to your Expo app 👋
+# COBANKER 🏦
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**Smart Banking, Shared Vision**
 
-## Get started
+COBANKER is a comprehensive commercial banking platform that bridges the gap between banks and their customers, enabling seamless communication and secure transactions in a unified ecosystem.
+
+## Overview
+
+COBANKER revolutionizes the traditional banking experience by providing a digital platform where multiple banks, their branches, and customers can interact efficiently. The platform facilitates everything from account management to inter-bank transactions, all while maintaining the highest security standards.
+
+## Key Features
+
+### 🏛️ Multi-Bank Support
+- Support for multiple banks with their respective branches
+- Centralized platform for diverse banking institutions
+- Branch-specific operations and management
+
+### 👥 User Management
+- **Bank Members**: Administrative staff with varying membership types and voting rights
+- **Customers**: End users with comprehensive profile management
+- Role-based access control and permissions
+
+### 💳 Account & Transaction Management
+- Secure customer account creation and management
+- Real-time transaction processing
+- Inter-bank transaction capabilities
+- Account status tracking and monitoring
+
+### 🔐 Security & Compliance
+- Multi-level authentication and authorization
+- Encrypted data transmission
+- Audit trails for all transactions
+- Compliance with banking regulations
+
+### 📱 Cross-Platform Access
+- Mobile-first responsive design
+- Web and mobile app support
+- Real-time notifications and updates
+
+## Database Schema
+
+The platform is built on a robust database structure including:
+- **Banks**: Core banking institutions with headquarters and establishment details
+- **Branches**: Individual bank locations with management hierarchy
+- **Members**: Bank employees with role-based permissions
+- **Customers**: End users with comprehensive profile information
+- Additional modules for transactions, accounts, and more (to be documented)
+
+## Technology Stack
+
+- **Frontend**: React Native with Expo
+- **Backend**: Node.js with TypeScript
+- **Database**: Supabase (PostgreSQL)
+- **Authentication**: Clerk
+- **Styling**: Modern UI components with themed design
+
+## Getting Started
 
 1. Install dependencies
-
    ```bash
    npm install
    ```
 
-2. Start the app
-
+2. Start the development server
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+3. Open the app in your preferred environment:
+   - Development build
+   - Android emulator
+   - iOS simulator
+   - Expo Go app
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+*This project is part of a larger banking ecosystem with additional modules to be documented in future releases.*
