@@ -52,7 +52,7 @@ try {
   console.log('FAIL: Controller import failed:', error.message);
 }
 
-console.log('\n📋 Test 3: Route Import Test');
+console.log('\n Test 3: Route Import Test');
 try {
   const accountRoutes = require('./src/routes/accountRoutes');
   const authRoutes = require('./src/routes/authRoutes');
@@ -66,7 +66,7 @@ try {
   const shareRoutes = require('./src/routes/shareRoutes');
   const transactionRoutes = require('./src/routes/transactionRoutes');
   
-  console.log('✅ All routes imported successfully');
+  console.log(' All routes imported successfully');
   console.log('   - Account routes: ✓');
   console.log('   - Auth routes: ✓');
   console.log('   - Customer routes: ✓');
@@ -79,24 +79,24 @@ try {
   console.log('   - Share routes: ✓');
   console.log('   - Transaction routes: ✓');
 } catch (error) {
-  console.log('❌ Route import failed:', error.message);
+  console.log(' Route import failed:', error.message);
 }
 
-console.log('\n📋 Test 4: Middleware Import Test');
+console.log('\n Test 4: Middleware Import Test');
 try {
   const authMiddleware = require('./src/middleware/authMiddleware');
   const errorMiddleware = require('./src/middleware/errorMiddleware');
   const validationMiddleware = require('./src/middleware/validationMiddleware');
   
-  console.log('✅ All middleware imported successfully');
+  console.log(' All middleware imported successfully');
   console.log('   - Auth middleware: ✓');
   console.log('   - Error middleware: ✓');
   console.log('   - Validation middleware: ✓');
 } catch (error) {
-  console.log('❌ Middleware import failed:', error.message);
+  console.log(' Middleware import failed:', error.message);
 }
 
-console.log('\n📋 Test 5: Validator Import Test');
+console.log('\n Test 5: Validator Import Test');
 try {
   const customerValidator = require('./src/validators/customerValidator');
   const dividendValidator = require('./src/validators/dividendValidator');
@@ -107,7 +107,7 @@ try {
   const shareValidator = require('./src/validators/shareValidator');
   const transactionValidator = require('./src/validators/transactionValidator');
   
-  console.log('✅ All validators imported successfully');
+  console.log(' All validators imported successfully');
   console.log('   - Customer validator: ✓');
   console.log('   - Dividend validator: ✓');
   console.log('   - FixedDeposit validator: ✓');
@@ -117,10 +117,10 @@ try {
   console.log('   - Share validator: ✓');
   console.log('   - Transaction validator: ✓');
 } catch (error) {
-  console.log('❌ Validator import failed:', error.message);
+  console.log(' Validator import failed:', error.message);
 }
 
-console.log('\n📋 Test 6: Server Configuration Test');
+console.log('\n Test 6: Server Configuration Test');
 try {
   // Mock Supabase for server test
   process.env.SUPABASE_URL = 'https://test.supabase.co';
@@ -129,15 +129,15 @@ try {
   
   // Test server import (without starting)
   const server = require('./src/server');
-  console.log('✅ Server configuration is valid');
+  console.log(' Server configuration is valid');
   console.log('   - Express app configured: ✓');
   console.log('   - All routes mounted: ✓');
   console.log('   - Middleware configured: ✓');
 } catch (error) {
-  console.log('❌ Server configuration failed:', error.message);
+  console.log(' Server configuration failed:', error.message);
 }
 
-console.log('\n📋 Test 7: Model Functionality Test');
+console.log('\n Test 7: Model Functionality Test');
 try {
   // Test Account model functionality
   const { Account, ACCOUNT_TYPES, ACCOUNT_STATUS } = require('./src/models/Account');
@@ -151,7 +151,7 @@ try {
   };
   
   const account = new Account(testAccountData);
-  console.log('✅ Account model functionality test passed');
+  console.log(' Account model functionality test passed');
   console.log(`   - Account number generated: ${account.account_number}`);
   console.log(`   - Account type: ${account.account_type}`);
   console.log(`   - Initial balance: ${account.balance}`);
@@ -159,13 +159,13 @@ try {
   
   // Test validation
   const isValid = account.account_number && account.account_type && account.balance >= 0;
-  console.log(`   - Validation: ${isValid ? '✓' : '❌'}`);
+  console.log(`   - Validation: ${isValid ? '✓' : ''}`);
   
 } catch (error) {
-  console.log('❌ Model functionality test failed:', error.message);
+  console.log(' Model functionality test failed:', error.message);
 }
 
-console.log('\n📋 Test 8: API Endpoint Structure Test');
+console.log('\n Test 8: API Endpoint Structure Test');
 try {
   const express = require('express');
   const app = express();
@@ -184,7 +184,7 @@ try {
   app.use('/api/v1/shares', shareRoutes);
   app.use('/api/v1/dividends', dividendRoutes);
   
-  console.log('✅ API endpoint structure test passed');
+  console.log(' API endpoint structure test passed');
   console.log('   - Account endpoints: ✓');
   console.log('   - Customer endpoints: ✓');
   console.log('   - Loan endpoints: ✓');
@@ -192,7 +192,7 @@ try {
   console.log('   - Dividend endpoints: ✓');
   
 } catch (error) {
-  console.log('❌ API endpoint structure test failed:', error.message);
+  console.log(' API endpoint structure test failed:', error.message);
 }
 
 console.log('\nCOBANKER Backend Test Summary:');
