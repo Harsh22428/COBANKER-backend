@@ -1,6 +1,38 @@
 const { createClient } = require('@supabase/supabase-js');
 const { logger } = require('../utils/logger');
 
+// Validate required environment variables
+const validateEnvironment = () => {
+  const requiredVars = [
+    'SUPABASE_URL',
+    'SUPABASE_ANON_KEY',
+    'SUPABASE_SERVICE_ROLE_KEY',
+    'JWT_SECRET'
+  ];
+
+  const missingVars = requiredVars.filter(varName => !process.env[varName]);
+
+  if (missingVars.length > 0) {
+    const error = `Missing required environment variables: ${missingVars.join(', ')}`;
+    logger.error(error);
+    throw new Error(error);
+  }
+
+  // Validate URL format
+  try {
+    new URL(process.env.SUPABASE_URL);
+  } catch (error) {
+    const urlError = 'Invalid SUPABASE_URL format';
+    logger.error(urlError);
+    throw new Error(urlError);
+  }
+
+  logger.info('Environment variables validated successfully');
+};
+
+// Validate environment before creating clients
+validateEnvironment();
+
 // Create Supabase client
 const supabase = createClient(
   process.env.SUPABASE_URL,
