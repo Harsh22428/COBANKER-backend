@@ -61,17 +61,17 @@ async function testAPI() {
     console.log('Test server setup complete');
     
     // Test 1: Health check
-    console.log('\n📋 Test 1: Basic Server Response');
+    console.log('\n Test 1: Basic Server Response');
     app.get('/health', (req, res) => {
       res.json({ status: 'OK', message: 'COBANKER Backend is running' });
     });
     
     const healthResponse = await request(app).get('/health');
-    console.log(`✅ Health check: ${healthResponse.status === 200 ? 'PASS' : 'FAIL'}`);
+    console.log(` Health check: ${healthResponse.status === 200 ? 'PASS' : 'FAIL'}`);
     
     // Test 2: Account endpoints structure
-    console.log('\n📋 Test 2: Account Endpoints');
-    console.log('✅ Account routes mounted successfully');
+    console.log('\n Test 2: Account Endpoints');
+    console.log(' Account routes mounted successfully');
     console.log('   - GET /api/v1/accounts (List accounts)');
     console.log('   - POST /api/v1/accounts (Create account)');
     console.log('   - GET /api/v1/accounts/:id (Get account)');
@@ -79,8 +79,8 @@ async function testAPI() {
     console.log('   - DELETE /api/v1/accounts/:id (Delete account)');
     
     // Test 3: Customer endpoints structure
-    console.log('\n📋 Test 3: Customer Endpoints');
-    console.log('✅ Customer routes mounted successfully');
+    console.log('\n Test 3: Customer Endpoints');
+    console.log(' Customer routes mounted successfully');
     console.log('   - GET /api/v1/customers (List customers)');
     console.log('   - POST /api/v1/customers (Create customer)');
     console.log('   - GET /api/v1/customers/:id (Get customer)');
@@ -88,8 +88,8 @@ async function testAPI() {
     console.log('   - DELETE /api/v1/customers/:id (Delete customer)');
     
     // Test 4: Loan endpoints structure
-    console.log('\n📋 Test 4: Loan Endpoints');
-    console.log('✅ Loan routes mounted successfully');
+    console.log('\n Test 4: Loan Endpoints');
+    console.log(' Loan routes mounted successfully');
     console.log('   - GET /api/v1/loans (List loans)');
     console.log('   - POST /api/v1/loans (Create loan)');
     console.log('   - GET /api/v1/loans/:id (Get loan)');
@@ -97,8 +97,8 @@ async function testAPI() {
     console.log('   - DELETE /api/v1/loans/:id (Delete loan)');
     
     // Test 5: Member endpoints structure
-    console.log('\n📋 Test 5: Member Endpoints');
-    console.log('✅ Member routes mounted successfully');
+    console.log('\n Test 5: Member Endpoints');
+    console.log(' Member routes mounted successfully');
     console.log('   - GET /api/v1/members (List members)');
     console.log('   - POST /api/v1/members (Create member)');
     console.log('   - GET /api/v1/members/:id (Get member)');
@@ -106,30 +106,30 @@ async function testAPI() {
     console.log('   - DELETE /api/v1/members/:id (Delete member)');
     
     // Test 6: Transaction endpoints structure
-    console.log('\n📋 Test 6: Transaction Endpoints');
-    console.log('✅ Transaction routes mounted successfully');
+    console.log('\n Test 6: Transaction Endpoints');
+    console.log(' Transaction routes mounted successfully');
     console.log('   - GET /api/v1/transactions (List transactions)');
     console.log('   - POST /api/v1/transactions (Create transaction)');
     console.log('   - GET /api/v1/transactions/:id (Get transaction)');
     
-    console.log('\n🎯 API Endpoint Test Results:');
+    console.log('\n API Endpoint Test Results:');
     console.log('=====================================');
-    console.log('✅ Server Setup: Working');
-    console.log('✅ Route Mounting: Working');
-    console.log('✅ Account API: 5 endpoints ready');
-    console.log('✅ Customer API: 5 endpoints ready');
-    console.log('✅ Loan API: 5 endpoints ready');
-    console.log('✅ Member API: 5 endpoints ready');
-    console.log('✅ Transaction API: 3 endpoints ready');
+    console.log(' Server Setup: Working');
+    console.log(' Route Mounting: Working');
+    console.log(' Account API: 5 endpoints ready');
+    console.log(' Customer API: 5 endpoints ready');
+    console.log(' Loan API: 5 endpoints ready');
+    console.log(' Member API: 5 endpoints ready');
+    console.log(' Transaction API: 3 endpoints ready');
     console.log('=====================================');
-    console.log('🚀 Total API endpoints: 23+');
-    console.log('🌐 All routes properly structured');
-    console.log('🔐 Authentication middleware ready');
-    console.log('📝 Request/Response handling ready');
+    console.log(' Total API endpoints: 23+');
+    console.log(' All routes properly structured');
+    console.log(' Authentication middleware ready');
+    console.log(' Request/Response handling ready');
     console.log('=====================================');
     
   } catch (error) {
-    console.log('❌ API test failed:', error.message);
+    console.log(' API test failed:', error.message);
   }
 }
 
