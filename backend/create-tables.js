@@ -70,7 +70,7 @@ async function createTables() {
     }
     
     console.log('');
-    console.log('🔍 DIAGNOSIS:');
+    console.log(' DIAGNOSIS:');
     console.log('=============');
     
     if (todosError && todosError.message.includes('does not exist')) {
@@ -148,7 +148,7 @@ async function createTables() {
       console.log('Your backend is already running with in-memory storage.');
       console.log('This works perfectly for development and testing!');
       console.log('');
-      console.log('🚀 RECOMMENDATION: Use Option 2 for now');
+      console.log(' RECOMMENDATION: Use Option 2 for now');
       console.log('Your Postman collection will work perfectly with the current setup.');
       
     } else {
@@ -162,12 +162,12 @@ async function createTables() {
     console.log('2. Test with Postman collection');
     console.log('3. All endpoints should work (with in-memory fallback)');
     console.log('');
-    console.log('🔗 Backend Status: http://localhost:3001/health');
+    console.log(' Backend Status: http://localhost:3001/health');
     
   } catch (error) {
     console.error(' Database check failed:', error.message);
     console.log('');
-    console.log('🔧 This is likely due to missing tables or permissions.');
+    console.log(' This is likely due to missing tables or permissions.');
     console.log('Your backend will use in-memory storage instead.');
     console.log('This is perfectly fine for development!');
   }
