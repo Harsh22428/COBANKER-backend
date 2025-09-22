@@ -1,16 +1,16 @@
 # CoBanker Backend Setup and Testing Guide
 
-## 🎯 Overview
+##  Overview
 
 This guide will help you set up and test the CoBanker backend API with Supabase database integration.
 
-## 📋 Prerequisites
+##  Prerequisites
 
 - Node.js 18+ installed
 - Supabase account and project
 - Postman (for API testing)
 
-## 🔧 Setup Instructions
+##  Setup Instructions
 
 ### 1. Environment Configuration
 
@@ -116,7 +116,7 @@ node src/server.js
 node simple-server.js
 ```
 
-## 🧪 Testing with Postman
+##  Testing with Postman
 
 ### Import the Collection
 
@@ -158,7 +158,7 @@ GET {{base_url}}/api/v1/accounts/{id}
 PATCH {{base_url}}/api/v1/accounts/{id}/balance
 ```
 
-## 🔍 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -190,7 +190,7 @@ node test-connection.js
 node simple-server.js
 ```
 
-## 📊 API Endpoints Overview
+##  API Endpoints Overview
 
 ### Authentication
 - `POST /api/v1/auth/register` - Register new user
@@ -215,17 +215,17 @@ node simple-server.js
 - `GET /health` - Health check
 - `GET /test-db` - Database connection test
 
-## 🎯 Next Steps
+##  Next Steps
 
-1. ✅ Environment configured
-2. ✅ Database schema created
-3. ✅ Postman collection ready
-4. 🔄 Start backend server
-5. 🔄 Test API endpoints
-6. 🔄 Verify database operations
-7. 🔄 Test authentication flow
+1. Environment configured
+2. Database schema created
+3. Postman collection ready
+4. Start backend server
+5. Test API endpoints
+6. Verify database operations
+7. Test authentication flow
 
-## 📝 Notes
+##  Notes
 
 - The backend uses JWT for authentication
 - All protected routes require `Authorization: Bearer <token>` header
@@ -233,7 +233,7 @@ node simple-server.js
 - Supabase handles database operations
 - CORS is configured for localhost development
 
-## 🆘 Support
+##  Support
 
 If you encounter issues:
 1. Check the logs in `backend 1/backend2/backend/logs/`
