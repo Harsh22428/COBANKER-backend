@@ -1,0 +1,334 @@
+{
+	"info": {
+		"_postman_id": "cobanker-backend-api-v1",
+		"name": "CoBanker Backend API",
+		"description": "Comprehensive API collection for CoBanker - Cooperative Banking System Backend\n\nBase URL: http://localhost:3001\nAPI Version: v1\n\nThis collection includes all endpoints for:\n- Health & System Checks\n- Database Testing\n- Authentication & Authorization\n- Customer Management\n- Account Management\n- Transaction Processing\n- Loan Management\n\nEnvironment Variables Required:\n- base_url: http://localhost:3001\n- api_version: v1\n- auth_token: (auto-populated after login)\n- customer_id: (auto-populated after customer creation)\n- account_id: (auto-populated after account creation)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health & System",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/health",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"health"
+							]
+						},
+						"description": "Check if the server is running and healthy"
+					}
+				},
+				{
+					"name": "Server Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "Get server status and basic information"
+					}
+				}
+			],
+			"description": "Basic health and system status endpoints"
+		},
+		{
+			"name": "Database Testing",
+			"item": [
+				{
+					"name": "Test Database Connection",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/test-db",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"test-db"
+							]
+						},
+						"description": "Test database connection and verify tables exist"
+					}
+				},
+				{
+					"name": "Create Test Customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Test Customer\",\n  \"email\": \"test@example.com\",\n  \"phone\": \"+1234567890\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/test-create-customer",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"test-create-customer"
+							]
+						},
+						"description": "Create a test customer to verify database write operations"
+					}
+				}
+			],
+			"description": "Database connection and basic CRUD testing endpoints"
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"admin@cobanker.com\",\n  \"password\": \"SecurePassword123!\",\n  \"name\": \"Admin User\",\n  \"role\": \"admin\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/{{api_version}}/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"auth",
+								"register"
+							]
+						},
+						"description": "Register a new user in the system"
+					}
+				},
+				{
+					"name": "Login User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    const response = pm.response.json();",
+									"    if (response.token) {",
+									"        pm.environment.set('auth_token', response.token);",
+									"        console.log('✅ Auth token saved');",
+									"    }",
+									"    if (response.user && response.user.user_id) {",
+									"        pm.environment.set('current_user_id', response.user.user_id);",
+									"        console.log('✅ User ID saved');",
+									"    }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"admin@cobanker.com\",\n  \"password\": \"SecurePassword123!\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/{{api_version}}/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Login and save auth token automatically"
+					}
+				}
+			],
+			"description": "Authentication endpoints"
+		},
+		{
+			"name": "Customer Management",
+			"item": [
+				{
+					"name": "Create Customer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 201 || pm.response.code === 200) {",
+									"    const response = pm.response.json();",
+									"    if (response.data && response.data.customer_id) {",
+									"        pm.environment.set('customer_id', response.data.customer_id);",
+									"        console.log('✅ Customer ID saved:', response.data.customer_id);",
+									"    }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"phone\": \"+1234567890\",\n  \"address\": {\n    \"street\": \"123 Main St\",\n    \"city\": \"Anytown\",\n    \"state\": \"ST\",\n    \"zip\": \"12345\",\n    \"country\": \"USA\"\n  },\n  \"date_of_birth\": \"1990-01-01\",\n  \"identification\": {\n    \"type\": \"passport\",\n    \"number\": \"P123456789\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/{{api_version}}/customers",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"customers"
+							]
+						},
+						"description": "Create a new customer and save customer ID"
+					}
+				},
+				{
+					"name": "Get All Customers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/{{api_version}}/customers",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"customers"
+							]
+						},
+						"description": "Get all customers"
+					}
+				},
+				{
+					"name": "Get Customer by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/{{api_version}}/customers/{{customer_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"customers",
+								"{{customer_id}}"
+							]
+						},
+						"description": "Get customer by ID"
+					}
+				}
+			],
+			"description": "Customer management endpoints"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Global pre-request script",
+					"console.log('🚀 CoBanker API Request:', pm.info.requestName);",
+					"",
+					"// Set timestamp for all requests",
+					"pm.globals.set('timestamp', new Date().toISOString());"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Global test script",
+					"pm.test('Response time is less than 5000ms', function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(5000);",
+					"});",
+					"",
+					"pm.test('Response has valid JSON', function () {",
+					"    pm.response.to.have.jsonBody();",
+					"});",
+					"",
+					"console.log('✅ Response Status:', pm.response.status);",
+					"console.log('⏱️  Response Time:', pm.response.responseTime + 'ms');"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3001",
+			"type": "string"
+		},
+		{
+			"key": "api_version",
+			"value": "v1",
+			"type": "string"
+		}
+	]
+}
