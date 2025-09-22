@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { createClient } = require('@supabase/supabase-js');
 
-console.log('🚀 Setting up CoBanker Database...');
+console.log(' Setting up CoBanker Database...');
 console.log('==================================');
 
 // Create Supabase admin client
@@ -18,10 +18,10 @@ const supabaseAdmin = createClient(
 
 async function setupDatabase() {
   try {
-    console.log('📋 Creating essential tables...');
+    console.log(' Creating essential tables...');
     
     // Create users table
-    console.log('1️⃣ Creating users table...');
+    console.log(' Creating users table...');
     const { error: usersError } = await supabaseAdmin.rpc('exec_sql', {
       sql_query: `
         CREATE TABLE IF NOT EXISTS users (
@@ -40,13 +40,13 @@ async function setupDatabase() {
     });
     
     if (usersError) {
-      console.log('   ⚠️ Users table:', usersError.message);
+      console.log('    Users table:', usersError.message);
     } else {
-      console.log('   ✅ Users table created');
+      console.log('    Users table created');
     }
     
     // Create customers table
-    console.log('2️⃣ Creating customers table...');
+    console.log(' Creating customers table...');
     const { error: customersError } = await supabaseAdmin.rpc('exec_sql', {
       sql_query: `
         CREATE TABLE IF NOT EXISTS customers (
@@ -68,13 +68,13 @@ async function setupDatabase() {
     });
     
     if (customersError) {
-      console.log('   ⚠️ Customers table:', customersError.message);
+      console.log('    Customers table:', customersError.message);
     } else {
-      console.log('   ✅ Customers table created');
+      console.log('    Customers table created');
     }
     
     // Create accounts table
-    console.log('3️⃣ Creating accounts table...');
+    console.log(' Creating accounts table...');
     const { error: accountsError } = await supabaseAdmin.rpc('exec_sql', {
       sql_query: `
         CREATE TABLE IF NOT EXISTS accounts (
@@ -93,13 +93,13 @@ async function setupDatabase() {
     });
     
     if (accountsError) {
-      console.log('   ⚠️ Accounts table:', accountsError.message);
+      console.log('    Accounts table:', accountsError.message);
     } else {
-      console.log('   ✅ Accounts table created');
+      console.log('    Accounts table created');
     }
     
     // Create transactions table
-    console.log('4️⃣ Creating transactions table...');
+    console.log(' Creating transactions table...');
     const { error: transactionsError } = await supabaseAdmin.rpc('exec_sql', {
       sql_query: `
         CREATE TABLE IF NOT EXISTS transactions (
@@ -117,13 +117,13 @@ async function setupDatabase() {
     });
     
     if (transactionsError) {
-      console.log('   ⚠️ Transactions table:', transactionsError.message);
+      console.log('    Transactions table:', transactionsError.message);
     } else {
-      console.log('   ✅ Transactions table created');
+      console.log('    Transactions table created');
     }
     
     // Create todos table for testing
-    console.log('5️⃣ Creating todos table...');
+    console.log(' Creating todos table...');
     const { error: todosError } = await supabaseAdmin.rpc('exec_sql', {
       sql_query: `
         CREATE TABLE IF NOT EXISTS todos (
@@ -136,13 +136,13 @@ async function setupDatabase() {
     });
     
     if (todosError) {
-      console.log('   ⚠️ Todos table:', todosError.message);
+      console.log('    Todos table:', todosError.message);
     } else {
-      console.log('   ✅ Todos table created');
+      console.log('    Todos table created');
     }
     
     // Insert sample todos
-    console.log('6️⃣ Adding sample data...');
+    console.log(' Adding sample data...');
     const { error: sampleError } = await supabaseAdmin
       .from('todos')
       .upsert([
@@ -152,25 +152,25 @@ async function setupDatabase() {
       ], { onConflict: 'title' });
     
     if (sampleError) {
-      console.log('   ⚠️ Sample data:', sampleError.message);
+      console.log('    Sample data:', sampleError.message);
     } else {
-      console.log('   ✅ Sample data added');
+      console.log('    Sample data added');
     }
     
     console.log('');
-    console.log('🧪 Testing database connection...');
+    console.log(' Testing database connection...');
     await testDatabase();
     
   } catch (error) {
-    console.error('💥 Database setup failed:', error.message);
+    console.error(' Database setup failed:', error.message);
     console.error('');
-    console.error('🔧 Trying alternative approach...');
+    console.error(' Trying alternative approach...');
     await alternativeSetup();
   }
 }
 
 async function alternativeSetup() {
-  console.log('🔄 Using direct table creation...');
+  console.log(' Using direct table creation...');
   
   try {
     // Try creating tables directly without RPC
@@ -212,20 +212,20 @@ async function alternativeSetup() {
       // This will likely fail, but we'll catch it
       try {
         await supabaseAdmin.from(table.name).select('*').limit(0);
-        console.log(`   ✅ ${table.name} table exists`);
+        console.log(`    ${table.name} table exists`);
       } catch (error) {
-        console.log(`   ⚠️ ${table.name} table may not exist`);
+        console.log(`    ${table.name} table may not exist`);
       }
     }
     
     console.log('');
-    console.log('🎯 PROCEEDING WITH IN-MEMORY FALLBACK');
+    console.log(' PROCEEDING WITH IN-MEMORY FALLBACK');
     console.log('');
     console.log('Your backend will use:');
-    console.log('✅ Primary: Supabase database (if available)');
-    console.log('✅ Fallback: In-memory storage (always works)');
+    console.log(' Primary: Supabase database (if available)');
+    console.log(' Fallback: In-memory storage (always works)');
     console.log('');
-    console.log('🚀 Ready to start backend server!');
+    console.log(' Ready to start backend server!');
     
   } catch (error) {
     console.log('   Using hybrid approach with fallback storage');
@@ -241,23 +241,23 @@ async function testDatabase() {
       .limit(3);
     
     if (todosError) {
-      console.log('❌ Database connection failed:', todosError.message);
+      console.log(' Database connection failed:', todosError.message);
       console.log('');
-      console.log('🔄 Don\'t worry! Your backend will use in-memory storage');
+      console.log(' Don\'t worry! Your backend will use in-memory storage');
     } else {
-      console.log(`✅ Database connected: ${todos.length} test records found`);
+      console.log(` Database connected: ${todos.length} test records found`);
       console.log('');
-      console.log('🎉 DATABASE SETUP COMPLETE!');
+      console.log(' DATABASE SETUP COMPLETE!');
     }
     
     console.log('');
-    console.log('🚀 Next Steps:');
+    console.log(' Next Steps:');
     console.log('1. Start backend: node src/server.js');
     console.log('2. Test with Postman');
     console.log('3. All endpoints ready!');
     
   } catch (error) {
-    console.log('⚠️ Database test inconclusive, but backend will work with fallback');
+    console.log(' Database test inconclusive, but backend will work with fallback');
   }
 }
 
