@@ -573,33 +573,33 @@ app.get('/api/v1/accounts/:id/transactions', authenticateToken, async (req, res)
 
 // Start server
 app.listen(PORT, () => {
-  console.log('🚀 CoBanker Stable Backend Started!');
+  console.log(' CoBanker Stable Backend Started!');
   console.log('===================================');
-  console.log(`📍 Server: http://localhost:${PORT}`);
-  console.log(`🏥 Health: http://localhost:${PORT}/health`);
+  console.log(` Server: http://localhost:${PORT}`);
+  console.log(` Health: http://localhost:${PORT}/health`);
   console.log('');
-  console.log('🔐 AUTHENTICATION ENDPOINTS:');
+  console.log(' AUTHENTICATION ENDPOINTS:');
   console.log(`   POST http://localhost:${PORT}/api/v1/auth/register`);
   console.log(`   POST http://localhost:${PORT}/api/v1/auth/login`);
   console.log(`   GET  http://localhost:${PORT}/api/v1/auth/me`);
   console.log('');
-  console.log('👥 CUSTOMER ENDPOINTS:');
+  console.log(' CUSTOMER ENDPOINTS:');
   console.log(`   GET  http://localhost:${PORT}/api/v1/customers`);
   console.log(`   POST http://localhost:${PORT}/api/v1/customers`);
   console.log(`   GET  http://localhost:${PORT}/api/v1/customers/:id`);
   console.log('');
-  console.log('💳 ACCOUNT ENDPOINTS:');
+  console.log(' ACCOUNT ENDPOINTS:');
   console.log(`   GET  http://localhost:${PORT}/api/v1/accounts`);
   console.log(`   POST http://localhost:${PORT}/api/v1/accounts`);
   console.log(`   GET  http://localhost:${PORT}/api/v1/accounts/:id`);
   console.log('');
-  console.log('💸 TRANSACTION ENDPOINTS:');
+  console.log(' TRANSACTION ENDPOINTS:');
   console.log(`   POST http://localhost:${PORT}/api/v1/transactions`);
   console.log(`   GET  http://localhost:${PORT}/api/v1/accounts/:id/transactions`);
   console.log('');
-  console.log('✅ STABLE IN-MEMORY STORAGE');
-  console.log('✅ ALL ENDPOINTS WORKING');
-  console.log('🎯 READY FOR POSTMAN TESTING!');
+  console.log(' STABLE IN-MEMORY STORAGE');
+  console.log(' ALL ENDPOINTS WORKING');
+  console.log(' READY FOR POSTMAN TESTING!');
 });
 
 module.exports = app;
