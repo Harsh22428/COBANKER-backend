@@ -1,6 +1,6 @@
-# 📋 CoBanker Postman Collection Setup Guide
+#  CoBanker Postman Collection Setup Guide
 
-## 🎯 Quick Start (5 Minutes)
+##  Quick Start (5 Minutes)
 
 ### Step 1: Import Collection & Environment
 1. **Open Postman**
@@ -17,10 +17,10 @@ node final-test.js
 ```
 **Expected Output:**
 ```
-🚀 CoBanker Backend Server Started!
-📍 Server: http://localhost:3001
-🏥 Health: http://localhost:3001/health
-✅ Ready for testing!
+ CoBanker Backend Server Started!
+ Server: http://localhost:3001
+ Health: http://localhost:3001/health
+ Ready for testing!
 ```
 
 ### Step 3: Test Basic Endpoints
@@ -28,14 +28,14 @@ node final-test.js
 2. **Server Status**: `GET /` → Should return server info
 3. **Database Test**: `GET /test-db` → Should show database tables
 
-## 🔧 Current Server Status
+##  Current Server Status
 
-✅ **Server**: Running on http://localhost:3001  
-✅ **Database**: Connected to Supabase  
-✅ **Tables**: 13 tables created successfully  
-✅ **Environment**: Development mode  
+ **Server**: Running on http://localhost:3001  
+ **Database**: Connected to Supabase  
+ **Tables**: 13 tables created successfully  
+ **Environment**: Development mode  
 
-## 📊 Available Endpoints
+##  Available Endpoints
 
 ### Health & System
 - `GET /health` - Server health check
@@ -45,7 +45,7 @@ node final-test.js
 - `GET /test-db` - Test database connection
 - `POST /test-create-customer` - Create test customer
 
-## 🎯 Next Steps
+##  Next Steps
 
 ### 1. Test Current Setup
 Run these requests in order:
@@ -64,7 +64,7 @@ Once basic tests pass, you can:
 - Test CRUD operations
 - Implement authentication flow
 
-## 🚨 Troubleshooting
+##  Troubleshooting
 
 ### Server Not Starting
 ```bash
@@ -92,7 +92,7 @@ Check `.env` file contains:
 - `SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIs...`
 - `PORT=3001`
 
-## 📝 Collection Features
+##  Collection Features
 
 ### Auto-Variable Setting
 - Login responses automatically save `auth_token`
@@ -112,11 +112,11 @@ Check `.env` file contains:
 | `customer_id` | Customer ID | Yes (after creation) |
 | `account_id` | Account ID | Yes (after creation) |
 
-## 🎉 Success Indicators
+##  Success Indicators
 
-✅ Health check returns `200 OK`  
-✅ Database test shows all 13 tables  
-✅ Server uptime > 0 seconds  
-✅ No connection errors in console  
+ Health check returns `200 OK`  
+ Database test shows all 13 tables  
+ Server uptime > 0 seconds  
+ No connection errors in console  
 
-**You're ready to start API testing!** 🚀
+**You're ready to start API testing!** 
